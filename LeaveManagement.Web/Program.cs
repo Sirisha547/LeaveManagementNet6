@@ -3,6 +3,11 @@ using LeaveManagement.Web.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.VisualStudio.Debugger.Contracts.HotReload;
+using LeaveManagement.Web.Contracts;
+using LeaveManagement.Application.Repositories;
+using LeaveManagement.Web.Repositories;
 
 namespace LeaveManagement.Web
 {
@@ -21,6 +26,8 @@ namespace LeaveManagement.Web
             builder.Services.AddDefaultIdentity<Employee>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            builder.Services.AddScoped<ILeaveTypeRepository, LeaveTypeRepository>();
             builder.Services.AddAutoMapper(typeof(MapperConfig));
 
             builder.Services.AddControllersWithViews();
