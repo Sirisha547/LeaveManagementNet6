@@ -2,6 +2,7 @@
 
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using LeaveManagement.Web.Models;
 
 namespace LeaveManagement.Web.Data
 {
@@ -19,6 +20,7 @@ namespace LeaveManagement.Web.Data
             builder.ApplyConfiguration(new UserRoleSeedConfiguration());
         }
         public DbSet<LeaveType> leaveTypes { get; set; }
-        public DbSet<LeaveAllocation> leaveAllocations { get; set; }
+        public DbSet<LeaveAllocation> LeaveAllocations { get; set; }
+
     }
 }

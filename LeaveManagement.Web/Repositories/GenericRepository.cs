@@ -20,11 +20,11 @@ namespace LeaveManagement.Application.Repositories
             return entity;
         }
 
-        /*public async Task AddRangeAsync(List<T> entities)
+        public async Task AddRangeAsync(List<T> entities)
         {
             await context.AddRangeAsync(entities);
             await context.SaveChangesAsync();
-        }*/
+        }
 
         public async Task DeleteAsync(int id)
         {
